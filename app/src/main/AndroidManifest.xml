@@ -16,7 +16,9 @@
         <activity android:name="br.com.heiderlopes.pokemonwstemplatev2.presentation.pokedex.PokedexActivity" />
         <activity android:name="br.com.heiderlopes.pokemonwstemplatev2.presentation.listpokemons.ListPokemonsActivity" />
         <activity android:name="br.com.heiderlopes.pokemonwstemplatev2.presentation.formpokemon.FormPokemonActivity" />
-        <activity android:name="br.com.heiderlopes.pokemonwstemplatev2.presentation.main.MainActivity">
+        <activity
+            android:exported="true"
+            android:name="br.com.heiderlopes.pokemonwstemplatev2.presentation.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
