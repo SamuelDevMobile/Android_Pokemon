@@ -5,8 +5,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 31
 
     buildFeatures {
         viewBinding = true
@@ -15,7 +14,6 @@ android {
     defaultConfig {
         applicationId "br.com.heiderlopes.pokemonwstemplatev2"
         minSdkVersion 21
-        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
