@@ -3,6 +3,7 @@ package br.com.heiderlopes.pokemonwstemplatev2.presentation.listpokemons
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import br.com.heiderlopes.pokemonwstemplatev2.R
 import br.com.heiderlopes.pokemonwstemplatev2.databinding.PokemonListItemBinding
 import br.com.heiderlopes.pokemonwstemplatev2.domain.model.Pokemon
 import com.squareup.picasso.Picasso
@@ -30,7 +31,9 @@ class ListPokemonsAdapter(
         val pokemon = pokemons[position]
         holder.binding.tvPokemonName.text = pokemon.name
         holder.binding.tvPokemonNumber.text = pokemon.number
-        picasso.load("https://pokedexdx.herokuapp.com/${pokemon.imageURL}")
+        picasso
+            .load("https://pokedexdx.herokuapp.com/${pokemon.imageURL}")
+            .placeholder(R.drawable.logo_pokemon)
             .into(holder.binding.ivPokemon)
 
         holder.binding.ivPokemon.setOnClickListener {

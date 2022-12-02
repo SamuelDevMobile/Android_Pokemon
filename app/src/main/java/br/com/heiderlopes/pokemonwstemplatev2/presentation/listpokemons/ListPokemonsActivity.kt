@@ -18,12 +18,10 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class ListPokemonsActivity : AppCompatActivity() {
 
     private val listPokemonsViewModel: ListPokemonsViewModel by viewModel()
-
-    val picasso: Picasso by inject()
-
     private val viewBinding by lazy {
         ActivityListPokemonsBinding.inflate(layoutInflater)
     }
+    val picasso: Picasso by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
