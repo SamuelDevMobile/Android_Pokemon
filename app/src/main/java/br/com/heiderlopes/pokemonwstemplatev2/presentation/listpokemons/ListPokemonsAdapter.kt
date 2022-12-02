@@ -9,9 +9,9 @@ import br.com.heiderlopes.pokemonwstemplatev2.domain.model.Pokemon
 import com.squareup.picasso.Picasso
 
 class ListPokemonsAdapter(
-    val pokemons: List<Pokemon>,
-    val picasso: Picasso,
-    val clickListener: (Pokemon) -> Unit
+    private val pokemons: List<Pokemon>,
+    private val picasso: Picasso,
+    private val clickListener: (Pokemon) -> Unit
 ) : RecyclerView.Adapter<ListPokemonsAdapter.PokemonViewHolder>() {
 
     inner class PokemonViewHolder(val binding: PokemonListItemBinding) :

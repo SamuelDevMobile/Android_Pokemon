@@ -15,7 +15,6 @@ class ListPokemonsViewModel(
 ) : ViewModel() {
 
     private val _pokemonResult = MutableLiveData<ViewState<List<Pokemon>>>()
-
     val pokemonResult : LiveData<ViewState<List<Pokemon>>>
         get() = _pokemonResult
 

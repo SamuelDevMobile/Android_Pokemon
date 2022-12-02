@@ -1,14 +1,12 @@
 package br.com.heiderlopes.pokemonwstemplatev2.presentation.listpokemons
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.recyclerview.widget.GridLayoutManager
-import br.com.heiderlopes.pokemonwstemplatev2.R
+import androidx.appcompat.app.AppCompatActivity
 import br.com.heiderlopes.pokemonwstemplatev2.databinding.ActivityListPokemonsBinding
+import br.com.heiderlopes.pokemonwstemplatev2.domain.model.Pokemon
 import br.com.heiderlopes.pokemonwstemplatev2.domain.model.ViewState
 import br.com.heiderlopes.pokemonwstemplatev2.presentation.formpokemon.FormPokemonActivity
 import com.squareup.picasso.Picasso
@@ -18,10 +16,8 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class ListPokemonsActivity : AppCompatActivity() {
 
     private val listPokemonsViewModel: ListPokemonsViewModel by viewModel()
-    private val viewBinding by lazy {
-        ActivityListPokemonsBinding.inflate(layoutInflater)
-    }
-    val picasso: Picasso by inject()
+    private val picasso: Picasso by inject()
+    private val viewBinding by lazy { ActivityListPokemonsBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,17 +26,12 @@ class ListPokemonsActivity : AppCompatActivity() {
         registerObserver()
     }
 
-    fun registerObserver() {
+    private fun registerObserver() {
         listPokemonsViewModel.pokemonResult.observe(this) {
             when (it) {
                 is ViewState.Success -> {
                     viewBinding.loading.containerLoading.visibility = View.GONE
-                    viewBinding.rvPokemons.adapter = ListPokemonsAdapter(it.data, picasso) {
-                        val intent = Intent(this, FormPokemonActivity::class.java)
-                        intent.putExtra("POKEMON", it.number)
-                        startActivity(intent)
-                    }
-                    viewBinding.rvPokemons.layoutManager = GridLayoutManager(this, 3)
+                    configurationRecyclerView(it)
                 }
                 is ViewState.Loading -> {
                     viewBinding.loading.containerLoading.visibility = View.VISIBLE
@@ -51,5 +42,14 @@ class ListPokemonsActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun configurationRecyclerView(listPokemons: ViewState.Success<List<Pokemon>>) {
+        viewBinding.rvPokemons.adapter =
+            ListPokemonsAdapter(listPokemons.data, picasso) {
+                val intent = Intent(this, FormPokemonActivity::class.java)
+                intent.putExtra("POKEMON", it.number)
+                startActivity(intent)
+            }
     }
 }
