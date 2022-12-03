@@ -28,7 +28,7 @@ class ListPokemonsActivity : AppCompatActivity() {
 
     private fun registerObserver() {
         listPokemonsViewModel.pokemonResult.observe(this) {
-            when (it) {
+            when(it) {
                 is ViewState.Success -> {
                     viewBinding.loading.containerLoading.visibility = View.GONE
                     configurationRecyclerView(it)

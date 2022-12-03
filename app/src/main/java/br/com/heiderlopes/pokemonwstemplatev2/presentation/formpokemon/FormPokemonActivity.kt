@@ -24,25 +24,50 @@ class FormPokemonActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(viewBinding.root)
-
         val pokemonNumber = intent.getStringExtra("POKEMON") ?: ""
         formPokemonViewModel.getPokemon(pokemonNumber)
-
         registerObserver()
+        updatePokemon()
     }
+
+    private fun updatePokemon() =
+        viewBinding.btSaveForm.setOnClickListener {
+            pokemon.attack = viewBinding.sbAttack.progress
+            pokemon.defense = viewBinding.sbDefense.progress
+            pokemon.velocity = viewBinding.sbVelocity.progress
+            pokemon.ps = viewBinding.sbPS.progress
+            formPokemonViewModel.update(pokemon)
+        }
 
     private fun registerObserver() {
         formPokemonViewModel.pokemonResult.observe(this) {
             when(it) {
                 is ViewState.Success -> setValues(it.data)
-                is ViewState.Loading -> {
-
-                }
+                is ViewState.Loading -> loadingFormPokemon()
                 is ViewState.Failure -> {
                     Toast.makeText(this, it.throwable.message, Toast.LENGTH_LONG).show()
                 }
             }
         }
+
+        formPokemonViewModel.pokemonUpdateResult.observe(this) {
+            when(it) {
+                is ViewState.Success -> {
+                    Toast.makeText(
+                        this,
+                        "Pokémon atualizado com sucesso",
+                        Toast.LENGTH_LONG).show()
+                }
+                is ViewState.Loading -> loadingFormPokemon()
+                is ViewState.Failure -> {
+                    Toast.makeText(this, it.throwable.message, Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
+    private fun loadingFormPokemon() {
+        viewBinding.loading.containerLoading.visibility = View.GONE
     }
 
     private fun setValues(pokemon: Pokemon) {
