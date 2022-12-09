@@ -52,6 +52,7 @@ class PokedexActivity : AppCompatActivity() {
         Toast.makeText(this, throwable.message, Toast.LENGTH_LONG).show()
 
     private fun setValues(pokemon: Pokemon) {
+        this.pokemon = pokemon
         viewBinding.tvPokemonName.text = pokemon.name
         picasso
             .load("https://pokedexdx.herokuapp.com${pokemon.imageURL}")
