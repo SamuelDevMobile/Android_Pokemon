@@ -42,11 +42,7 @@ class PokedexActivity : AppCompatActivity() {
         viewModel.pokemonResult.observe(this) {
             when(it) {
                 is ViewState.Success -> {
-                    viewBinding.tvPokemonName.text = it.data.name
-                        picasso
-                            .load("https://pokedexdx.herokuapp.com${it.data.imageURL}")
-                            .placeholder(R.drawable.logo_pokemon)
-                            .into(viewBinding.ivPokemon)
+                    setValues(it.data)
                 }
                 is ViewState.Loading -> { }
                 is ViewState.Failure -> {
@@ -54,6 +50,14 @@ class PokedexActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun setValues(pokemon: Pokemon) {
+        viewBinding.tvPokemonName.text = pokemon.name
+        picasso
+            .load("https://pokedexdx.herokuapp.com${pokemon.imageURL}")
+            .placeholder(R.drawable.logo_pokemon)
+            .into(viewBinding.ivPokemon)
     }
 
 

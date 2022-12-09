@@ -51,9 +51,6 @@ class ScanActivity : BaseScanActivity(), ZXingScannerView.ResultHandler {
 
     override fun handleResult(rawResult: Result?) {
         val pokemonNumber = rawResult?.text
-//        val intent = Intent(this, PokedexActivity::class.java)
-//        intent.putExtra(PokedexActivity.POKEMON_ID, pokemonNumber)
-//        startActivity(intent)
         PokedexActivity.newInstance(this, pokemonNumber)
         finish()
     }
