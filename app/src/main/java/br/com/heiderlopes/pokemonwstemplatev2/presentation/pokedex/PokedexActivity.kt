@@ -41,16 +41,15 @@ class PokedexActivity : AppCompatActivity() {
     private fun registerObserver() {
         viewModel.pokemonResult.observe(this) {
             when(it) {
-                is ViewState.Success -> {
-                    setValues(it.data)
-                }
+                is ViewState.Success -> setValues(it.data)
                 is ViewState.Loading -> { }
-                is ViewState.Failure -> {
-                    Toast.makeText(this, it.throwable.message, Toast.LENGTH_LONG).show()
-                }
+                is ViewState.Failure -> mensageReturn(it.throwable)
             }
         }
     }
+
+    private fun mensageReturn(throwable: Throwable) =
+        Toast.makeText(this, throwable.message, Toast.LENGTH_LONG).show()
 
     private fun setValues(pokemon: Pokemon) {
         viewBinding.tvPokemonName.text = pokemon.name
