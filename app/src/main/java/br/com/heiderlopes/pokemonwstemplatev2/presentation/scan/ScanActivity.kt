@@ -14,6 +14,8 @@ import br.com.heiderlopes.pokemonwstemplatev2.R
 import br.com.heiderlopes.pokemonwstemplatev2.databinding.ActivityScanBinding
 import br.com.heiderlopes.pokemonwstemplatev2.presentation.BaseScanActivity
 import br.com.heiderlopes.pokemonwstemplatev2.presentation.pokedex.PokedexActivity
+import br.com.heiderlopes.pokemonwstemplatev2.utils.Constants
+import br.com.heiderlopes.pokemonwstemplatev2.utils.Constants.POKEMON_ID
 import com.google.zxing.Result
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 
@@ -49,9 +51,10 @@ class ScanActivity : BaseScanActivity(), ZXingScannerView.ResultHandler {
 
     override fun handleResult(rawResult: Result?) {
         val pokemonNumber = rawResult?.text
-        val intent = Intent(this, PokedexActivity::class.java)
-        intent.putExtra("POKEMON", pokemonNumber)
-        startActivity(intent)
+//        val intent = Intent(this, PokedexActivity::class.java)
+//        intent.putExtra(PokedexActivity.POKEMON_ID, pokemonNumber)
+//        startActivity(intent)
+        PokedexActivity.newInstance(this, pokemonNumber)
         finish()
     }
 
