@@ -33,7 +33,7 @@ class PokedexActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(viewBinding.root)
-        val number = intent.getStringExtra("POKEMON") ?: ""
+        val number = intent.getStringExtra(POKEMON_ID) ?: ""
         viewModel.getPokemon(number)
         registerObserver()
     }
