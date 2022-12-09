@@ -19,6 +19,7 @@ class FormPokemonActivity : AppCompatActivity() {
     private val formPokemonViewModel: FormPokemonViewModel by viewModel()
     private val picasso: Picasso by inject()
     private lateinit var pokemon: Pokemon
+
     private val viewBinding by lazy { ActivityFormPokemonBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,7 +75,10 @@ class FormPokemonActivity : AppCompatActivity() {
         this.pokemon = pokemon
         viewBinding.tvPokemonNameForm.text = pokemon.name
 
-        picasso.load("https://pokedexdx.herokuapp.com${pokemon.imageURL}").into(viewBinding. ivPokemonForm)
+        picasso
+            .load("https://pokedexdx.herokuapp.com${pokemon.imageURL}")
+            .placeholder(R.drawable.logo_pokemon)
+            .into(viewBinding. ivPokemonForm)
 
         viewBinding.sbAttack.progress = pokemon.attack
         viewBinding.sbDefense.progress = pokemon.defense

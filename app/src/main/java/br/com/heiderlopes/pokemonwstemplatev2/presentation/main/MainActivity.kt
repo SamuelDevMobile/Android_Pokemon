@@ -7,6 +7,7 @@ import android.widget.Button
 import br.com.heiderlopes.pokemonwstemplatev2.R
 import br.com.heiderlopes.pokemonwstemplatev2.databinding.ActivityMainBinding
 import br.com.heiderlopes.pokemonwstemplatev2.presentation.listpokemons.ListPokemonsActivity
+import br.com.heiderlopes.pokemonwstemplatev2.presentation.scan.ScanActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,5 +21,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, ListPokemonsActivity::class.java))
         }
 
+        viewBinding.btPokedex.setOnClickListener {
+            startActivity(Intent(this, ScanActivity::class.java))
+        }
     }
 }

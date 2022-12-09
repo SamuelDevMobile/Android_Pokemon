@@ -6,5 +6,6 @@ class GetPokemonUseCase(
     private val pokemonRepository: PokemonRepository
 ){
 
-    suspend operator fun invoke(number: String) = pokemonRepository.getPokemon(number)
+    suspend operator fun invoke(number: String) =
+        pokemonRepository.getPokemon(number)
 }
