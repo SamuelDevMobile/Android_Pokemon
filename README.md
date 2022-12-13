@@ -1,7 +1,7 @@
 # Aplicativo Pokemon
 
 ## Introdução
-
+Este aplicativo foi construído para fins didáticos, apenas para conhecimento e incremento de conhecimentos no mundo de Mobile. Aplicativo consiste em consumir uma API a onde exibe pokemons e possui um leitor de QRCode para ler pokemon capturado e na leitura exibe o detalhe do pokemon.
 
 ## Configuração do projeto
 Ele pode ser baixado conforme abaixo:
