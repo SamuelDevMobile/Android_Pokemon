@@ -40,6 +40,9 @@ dispositivo de teste: Android O (Google Pixel 2)
 Certifique-se de que seu dispositivo tenha a versão Android >= 21.
 ```
 
+## Agradecimento
+* [Heider Lopes](https://github.com/heiderlopes)
+
 ## Tela Principal
 > Aqui é Exibido os três botões iniciais para ir em diferentes pontos do App.
 <img width="324" alt="Captura de Tela 2022-12-13 às 15 19 08" src="https://user-images.githubusercontent.com/26841238/207413620-e67762bf-f053-4f66-921d-e16a87380556.png">
