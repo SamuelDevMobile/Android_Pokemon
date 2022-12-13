@@ -16,9 +16,8 @@ Execute o projeto no seguinte icone.
 
 ## Visão geral da arquitetura
 Este projeto foi construido com a linguagem Kotlin e construído com a arquitetura MVVM junto com LiveData, foi implementado também alguns princípios de boas práticas
-no mundo de desenvolvimento orientado a objeto com SOLID, Coroutines para uma requisição assíncrona e Retrofit para se comunicar com a API da Marvel, Picasso
-para renderizar imagens e Injeção de dependência com Koin. Desenvolvido com Activitys e usado ViewBinding, RecyclerView para Listar os pokemons na Tela de ver todos os Pokemons. Possui uma tela para ler um QRCode
-e com esse QRCode ele le o pokemon e mostra o detalhamento em uma outra tela.
+no mundo de desenvolvimento orientado a objeto com SOLID, Coroutines para uma requisição assíncrona e Retrofit para se comunicar com a API, Picasso
+para renderizar imagens e Injeção de dependência com Koin. Desenvolvido com Activitys e usado ViewBinding, RecyclerView para listar os pokemons. Possui uma tela para ler um QRCode e com esse QRCode ele le o pokemon e mostra o detalhamento em uma outra tela.
 
 ## Fluxo de trabalho de Controle de Versão
 Usamos vagamente a abordagem "Git flow": master é a versão
