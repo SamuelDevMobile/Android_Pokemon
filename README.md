@@ -6,7 +6,7 @@ Este aplicativo foi construído para fins didáticos, apenas para conhecimento e
 ## Configuração do projeto
 Ele pode ser baixado conforme abaixo:
 ```sh
-$ git clone https://github.com/SamuelDevMobile/AppMarvelStudios.git
+$ git clone https://github.com/SamuelDevMobile/Android_Pokemon.git
 ```
 Abra-o no seu Android Studio
 <img width="796" alt="Captura de Tela 2022-08-18 às 16 49 30" src="https://user-images.githubusercontent.com/26841238/185482115-adb2f78d-4b36-4cac-a6b7-d2806b0b7bc5.png">
